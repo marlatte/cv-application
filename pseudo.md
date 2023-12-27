@@ -2,7 +2,7 @@
 
 ## Description
 
-An editable CV with buttons on the bottom of each section (mobile) or that appear on hover (desktop) to add more info. Clicking the Edit button in display mode switches it to edit mode, which has a Save button at the bottom. Opening edit mode on any form should require all other forms to be closed, preventing any accidental loss of data. There will also be a preview section below (mobile) or to the right (desktop) that scrapes the relevant data from the DOM and builds a paper-looking CV, meaning the app will require consistent use of element classes and `querySelectorAll()`. That preview can then be printed via a button at the bottom of the screen that initiates this:
+An editable CV with buttons on the bottom of each section (mobile) or that appear on hover (desktop) to add more info. Clicking the Edit button in display mode switches it to edit mode, which has a Save button at the bottom. There will also be a preview section below (mobile) or to the right (desktop) that scrapes the relevant data from the DOM and builds a paper-looking CV, meaning the app will require consistent use of element classes and `querySelectorAll()`. That preview can then be printed via a button at the bottom of the screen that initiates this:
 
 ```
 function printCV() {
