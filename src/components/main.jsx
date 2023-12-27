@@ -1,29 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './App';
-import '../styles/index.css';
 import Form from './Form';
-
-const formsData = {
-  genInfo: {
-    formName: 'general-info',
-    inputs: [
-      { type: 'text', domId: 'name', init: 'John Smith' },
-      { type: 'email', domId: 'email', init: 'jsmith@example.com' },
-    ],
-  },
-  education: {
-    formName: 'education',
-    inputs: [
-      { type: 'text', domId: 'school', init: 'University of Georgia' },
-      {
-        type: 'text',
-        domId: 'degree',
-        init: 'Bachelor of Arts',
-      },
-    ],
-  },
-};
+import formsData from './forms-data';
+import '../styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
