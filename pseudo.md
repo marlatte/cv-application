@@ -33,8 +33,8 @@ function printCV() {
 ## Components
 
 1. Section
-   1. Form(s) - edit or display modes as state
-      1. Input(s) - edit or display mode as props, content state saved internally
+   1. Form(s)
+      1. Input(s)
       1. Edit/Save btn changes mode state
    1. Add Form btn
 1. Preview - scrapes contents and builds a printable CV

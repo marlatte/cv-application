@@ -2,10 +2,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import Input from './Input';
-import toTitleCase from './helpers';
 
-function Form({ formData }) {
-  const { sectionName, inputs } = formData;
+function Form({ formId, formData }) {
+  const { inputs } = formData;
   const [editMode, setEditMode] = useState(false);
 
   function handleClick() {
@@ -13,8 +12,7 @@ function Form({ formData }) {
   }
 
   return (
-    <form className={sectionName}>
-      <h1>{toTitleCase(sectionName)}</h1>
+    <form className={formId}>
       {inputs.map(({ type, domId, init }) => (
         <Input
           key={domId}
