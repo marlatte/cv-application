@@ -12,14 +12,23 @@ function Input({ editMode, type, domId, init }) {
       <label htmlFor={domId} style={{ marginRight: 10 }}>{`${toTitleCase(
         domId
       )}:`}</label>
-      <input
-        type={type}
-        name={domId}
-        id={domId}
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        autoComplete={domId}
-      />
+      {type === 'textArea' ? (
+        <textarea
+          name={domId}
+          id={domId}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+      ) : (
+        <input
+          type={type}
+          name={domId}
+          id={domId}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          autoComplete={domId}
+        />
+      )}
     </>
   );
   return editMode ? editView : displayView;
