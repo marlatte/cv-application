@@ -17,7 +17,12 @@ const appData = [
       {
         inputs: [
           { type: 'text', domId: 'school', init: 'University of Georgia' },
-          { type: 'text', domId: 'degree-level', init: 'Bachelor of Art' },
+          { type: 'text', domId: 'degree-level', init: 'Bachelor of Arts' },
+          {
+            type: 'text',
+            domId: 'degree-subject',
+            init: 'International Affairs',
+          },
           { type: 'number', domId: 'graduation-year', init: '2017' },
         ],
       },
