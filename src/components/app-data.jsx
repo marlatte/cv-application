@@ -31,11 +31,18 @@ const appData = [
           { type: 'text', domId: 'company', init: 'IronArch Technology' },
           { type: 'text', domId: 'position', init: 'Research Analyst' },
           {
-            type: 'textArea',
+            type: 'textarea',
             domId: 'responsibilities',
             init: '- Analyze\n- Develop\n- Edit',
           },
-          { type: 'number', domId: 'graduation-year', init: '2017' },
+          {
+            type: 'job-dates',
+            inputs: [
+              { type: 'month', domId: 'start-date', init: '2018-03' },
+              { type: 'checkbox', domId: 'current', init: '' },
+              { type: 'month', domId: 'end-date', init: '' },
+            ],
+          },
         ],
       },
     ],

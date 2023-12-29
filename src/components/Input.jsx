@@ -1,25 +1,29 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import toTitleCase from './helpers';
 
-function Input({ editMode, type, domId, init }) {
+export function FormItem({ editMode, type, domId, init }) {
   const [content, setContent] = useState(init);
 
   const displayView = <p id={domId}>{content}</p>;
 
-  const editView = (
-    <>
-      <label htmlFor={domId} style={{ marginRight: 10 }}>{`${toTitleCase(
-        domId
-      )}:`}</label>
-      {type === 'textArea' ? (
+  let editInput;
+
+  switch (type) {
+    case 'textarea':
+      editInput = (
         <textarea
           name={domId}
           id={domId}
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-      ) : (
+      );
+      break;
+
+    default:
+      editInput = (
         <input
           type={type}
           name={domId}
@@ -28,10 +32,57 @@ function Input({ editMode, type, domId, init }) {
           onChange={(e) => setContent(e.target.value)}
           autoComplete={domId}
         />
-      )}
-    </>
+      );
+      break;
+  }
+
+  const editView = (
+    <div className="formItem">
+      <label htmlFor={domId} style={{ marginRight: 10 }}>{`${toTitleCase(
+        domId
+      )}:`}</label>
+      {editInput}
+    </div>
   );
   return editMode ? editView : displayView;
 }
 
-export default Input;
+export function JobDates({ editMode }) {
+  const [currentJob, setCurrentJob] = useState(false);
+
+  const displayView = currentJob && <p>Present</p>;
+
+  const editView = (
+    <div className="formItem">
+      <label htmlFor="current-job-0">Is this your current job?</label>
+      <input
+        type="checkbox"
+        id="current-job-0"
+        checked={currentJob}
+        onChange={() => setCurrentJob(!currentJob)}
+      />
+    </div>
+  );
+
+  return (
+    <>
+      <FormItem
+        key="job-start"
+        editMode={editMode}
+        type="month"
+        domId="start-date-0"
+        init="(start date)"
+      />
+      {editMode ? editView : displayView}
+      {!currentJob && (
+        <FormItem
+          key="job-end"
+          editMode={editMode}
+          type="month"
+          domId="end-date-0"
+          init="(end date)"
+        />
+      )}
+    </>
+  );
+}

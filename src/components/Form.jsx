@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import Input from './Input';
+import { FormItem, JobDates } from './Input';
 
 function Form({ formId, formData }) {
   const { inputs } = formData;
@@ -13,15 +12,19 @@ function Form({ formId, formData }) {
 
   return (
     <form className={formId}>
-      {inputs.map(({ type, domId, init }) => (
-        <Input
-          key={domId}
-          editMode={editMode}
-          type={type}
-          domId={domId}
-          init={init}
-        />
-      ))}
+      {inputs.map(({ type, domId, init }) =>
+        type === 'job-dates' ? (
+          <JobDates key="job-dates" editMode={editMode} />
+        ) : (
+          <FormItem
+            key={domId}
+            editMode={editMode}
+            type={type}
+            domId={`${domId}-0`}
+            init={init}
+          />
+        )
+      )}
       <button type="button" onClick={handleClick}>
         Change
       </button>
