@@ -39,3 +39,33 @@ function printCV() {
    1. Add Form btn
 1. Preview - scrapes contents and builds a printable CV
 1. PrintBtn
+
+- App
+  - Section: GenInfo
+    - Form
+      - FormItem
+      - FormItem
+      - FormItem
+  - Section: Education
+    - Form
+      - FormItem
+      - FormItem
+      - FormItem
+    - Form (optional)
+      - FormItem
+      - FormItem
+      - FormItem
+    - Add School btn
+  - Section: Experience
+    - Form
+      - FormItem
+      - FormItem
+      - FormItem
+      - FormItem
+    - Add Job btn
+    - Form (optional)
+      - FormItem
+      - FormItem
+      - FormItem
+      - FormItem
+  - Preview
