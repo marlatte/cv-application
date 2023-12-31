@@ -51,11 +51,11 @@ function printCV() {
       - FormItem
       - FormItem
       - FormItem
+    - Add School btn
     - Form (optional)
       - FormItem
       - FormItem
       - FormItem
-    - Add School btn
   - Section: Experience
     - Form
       - FormItem

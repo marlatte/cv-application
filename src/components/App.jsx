@@ -1,11 +1,14 @@
 import '../styles/App.css';
 import Section from './Section';
-import appData from './app-data';
 
 function App() {
-  return appData.map((section) => (
-    <Section key={section.sectionName} sectionData={section} />
-  ));
+  return (
+    <>
+      <Section sectionName="general-info" />
+      <Section sectionName="education" />
+      <Section sectionName="experience" />
+    </>
+  );
 }
 
 export default App;
