@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { FormItem, JobDates } from './Input';
 import { formTemplates } from './app-data';
 
-function Form({ formId, sectionName }) {
+function Form({ formId, sectionName, children }) {
   const inputs = formTemplates[sectionName];
   const [editMode, setEditMode] = useState(true);
 
@@ -30,6 +30,7 @@ function Form({ formId, sectionName }) {
       <button type="button" onClick={handleClick}>
         Change
       </button>
+      {sectionName !== 'general-info' && children}
     </form>
   );
 }

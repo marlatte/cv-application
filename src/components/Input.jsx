@@ -45,6 +45,7 @@ export function FormItem({ editMode, type, domId, formId, init }) {
       {editInput}
     </div>
   );
+
   return editMode ? editView : displayView;
 }
 
