@@ -15,7 +15,7 @@ export function FormItem({ editMode, type, domId, formId, init }) {
       editInput = (
         <textarea
           name={domId}
-          id={domId}
+          id={`${domId}-${formId}`}
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
@@ -49,17 +49,18 @@ export function FormItem({ editMode, type, domId, formId, init }) {
   return editMode ? editView : displayView;
 }
 
-export function JobDates({ editMode }) {
+export function JobDates({ editMode, formId, data }) {
+  const [start, end] = data;
   const [currentJob, setCurrentJob] = useState(false);
 
   const displayView = currentJob && <p>Present</p>;
 
   const editView = (
     <div className="formItem">
-      <label htmlFor="current-job-0">Is this your current job?</label>
+      <label htmlFor={`current-job-${formId}`}>Is this your current job?</label>
       <input
         type="checkbox"
-        id="current-job-0"
+        id={`current-job-${formId}`}
         checked={currentJob}
         onChange={() => setCurrentJob(!currentJob)}
       />
@@ -69,20 +70,22 @@ export function JobDates({ editMode }) {
   return (
     <>
       <FormItem
-        key="job-start"
+        key={start.domId}
         editMode={editMode}
-        type="month"
-        domId="start-date-0"
-        init="(start date)"
+        type={start.type}
+        domId={start.domId}
+        init={start.init}
+        formId={formId}
       />
       {editMode ? editView : displayView}
       {!currentJob && (
         <FormItem
-          key="job-end"
+          key={end.domId}
           editMode={editMode}
-          type="month"
-          domId="end-date-0"
-          init="(end date)"
+          type={end.type}
+          domId={end.domId}
+          init={end.init}
+          formId={formId}
         />
       )}
     </>

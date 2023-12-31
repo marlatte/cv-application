@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { FormItem, JobDates } from './Input';
-import { formTemplates } from './app-data';
+import formTemplates from './app-data';
 
 function Form({ formId, sectionName, children }) {
   const inputs = formTemplates[sectionName];
@@ -13,9 +13,14 @@ function Form({ formId, sectionName, children }) {
 
   return (
     <form className={`${sectionName}-${formId}`}>
-      {inputs.map(({ type, domId, init }) =>
+      {inputs.map(({ type, domId, init, data }) =>
         type === 'job-dates' ? (
-          <JobDates key="job-dates" editMode={editMode} />
+          <JobDates
+            key="job-dates"
+            editMode={editMode}
+            data={data}
+            formId={formId}
+          />
         ) : (
           <FormItem
             key={domId}
