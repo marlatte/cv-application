@@ -13,7 +13,6 @@ function Form({ formId, sectionName, children }) {
 
   return (
     <form className={`${sectionName}-${formId}`}>
-      {sectionName !== 'personal-information' && children}
       {inputs.map(({ type, domId, init }) =>
         type === 'job-dates' ? (
           <JobDates key="job-dates" editMode={editMode} formId={formId} />
@@ -28,6 +27,7 @@ function Form({ formId, sectionName, children }) {
           />
         )
       )}
+      {editMode && sectionName !== 'personal-information' && children}
       <button type="button" onClick={handleClick}>
         {editMode ? 'Save' : 'Edit'}
       </button>

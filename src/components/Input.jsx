@@ -6,7 +6,7 @@ import toTitleCase from './helpers';
 export function FormItem({ editMode, type, domId, formId, init }) {
   const [content, setContent] = useState('');
 
-  const displayView = content ?? <p id={domId}>{content}</p>;
+  const displayView = content ? <p id={domId}>{content}</p> : '';
 
   let editInput;
 
@@ -39,7 +39,7 @@ export function FormItem({ editMode, type, domId, formId, init }) {
   }
 
   const editView = (
-    <div className="formItem">
+    <div className="form-item">
       <label
         htmlFor={`${domId}-${formId}`}
         style={{ marginRight: 10 }}
@@ -57,7 +57,7 @@ export function JobDates({ editMode, formId }) {
   const displayView = currentJob && <p>Present</p>;
 
   const editView = (
-    <div className="formItem">
+    <div className="form-item">
       <label htmlFor={`current-job-${formId}`}>Is this your current job?</label>
       <input
         type="checkbox"

@@ -5,18 +5,21 @@ import Form from './Form';
 
 function AddEntryBtn({ onClick }) {
   return (
-    <div>
-      <button type="button" onClick={onClick}>
-        Add an Entry
-      </button>
-    </div>
+    <button type="button" onClick={onClick}>
+      Add an Entry
+    </button>
   );
 }
 
 function RemoveEntryBtn({ onClick, formId }) {
   return (
-    <button type="button" onClick={onClick} data-form-id={formId}>
-      ×
+    <button
+      type="button"
+      className="remove-btn"
+      onClick={onClick}
+      data-form-id={formId}
+    >
+      Delete
     </button>
   );
 }

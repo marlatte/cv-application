@@ -1,4 +1,3 @@
-import '../styles/App.css';
 import Section from './Section';
 
 function App() {
@@ -7,9 +6,11 @@ function App() {
       <header>
         <h1>Build Your Resume</h1>
       </header>
-      <Section sectionName="personal-information" />
-      <Section sectionName="education" />
-      <Section sectionName="experience" />
+      <main>
+        <Section sectionName="personal-information" />
+        <Section sectionName="education" />
+        <Section sectionName="experience" />
+      </main>
     </>
   );
 }
