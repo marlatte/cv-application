@@ -4,7 +4,10 @@ import Section from './Section';
 function App() {
   return (
     <>
-      <Section sectionName="general-info" />
+      <header>
+        <h1>Build Your Resume</h1>
+      </header>
+      <Section sectionName="personal-information" />
       <Section sectionName="education" />
       <Section sectionName="experience" />
     </>

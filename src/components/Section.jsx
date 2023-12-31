@@ -30,11 +30,12 @@ function Section({ sectionName }) {
     setCounter(counter + 1);
   };
 
-  if (sectionName === 'general-info' && formList.length === 0) onAddBtnClick();
+  if (sectionName === 'personal-information' && formList.length === 0)
+    onAddBtnClick();
 
   return (
     <section className={sectionName}>
-      <h1>{toTitleCase(sectionName)}</h1>
+      <h2>{toTitleCase(sectionName)}</h2>
       {formList.map(({ id, name }) => (
         <Form key={id} formId={id} sectionName={name}>
           <RemoveEntryBtn
@@ -45,7 +46,7 @@ function Section({ sectionName }) {
           />
         </Form>
       ))}
-      {sectionName !== 'general-info' && (
+      {sectionName !== 'personal-information' && (
         <AddEntryBtn onClick={onAddBtnClick} />
       )}
     </section>

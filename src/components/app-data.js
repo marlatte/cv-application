@@ -1,5 +1,5 @@
 const formTemplates = {
-  'general-info': [
+  'personal-information': [
     { type: 'text', domId: 'name', init: 'John Smith' },
     { type: 'email', domId: 'email', init: 'jsmith@example.com' },
     { type: 'tel', domId: 'phone', init: '555-555-5555' },

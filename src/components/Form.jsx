@@ -13,7 +13,7 @@ function Form({ formId, sectionName, children }) {
 
   return (
     <form className={`${sectionName}-${formId}`}>
-      {sectionName !== 'general-info' && children}
+      {sectionName !== 'personal-information' && children}
       {inputs.map(({ type, domId, init }) =>
         type === 'job-dates' ? (
           <JobDates key="job-dates" editMode={editMode} formId={formId} />
