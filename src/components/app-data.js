@@ -5,29 +5,25 @@ const formTemplates = {
     { type: 'tel', domId: 'phone', init: '555-555-5555' },
   ],
   education: [
-    { type: 'text', domId: 'school', init: 'University of Georgia' },
-    { type: 'text', domId: 'degree-level', init: 'Bachelor of Arts' },
+    { type: 'text', domId: 'school', init: 'University...' },
+    { type: 'text', domId: 'degree-level', init: 'Bachelor...' },
     {
       type: 'text',
       domId: 'degree-subject',
-      init: 'International Affairs',
+      init: 'Biology...',
     },
-    { type: 'number', domId: 'graduation-year', init: '2017' },
+    { type: 'month', domId: 'graduation-date' },
   ],
   experience: [
-    { type: 'text', domId: 'company', init: 'IronArch Technology' },
-    { type: 'text', domId: 'position', init: 'Research Analyst' },
+    { type: 'text', domId: 'company', init: 'Company...' },
+    { type: 'text', domId: 'position', init: 'Title...' },
     {
       type: 'textarea',
       domId: 'responsibilities',
-      init: '- Analyze\n- Develop\n- Edit',
+      init: 'Separate entries by line.',
     },
     {
       type: 'job-dates',
-      data: [
-        { type: 'month', domId: 'start-date', init: '(start date)' },
-        { type: 'month', domId: 'end-date', init: '(end date)' },
-      ],
     },
   ],
 };

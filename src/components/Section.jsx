@@ -16,7 +16,7 @@ function AddEntryBtn({ onClick }) {
 function RemoveEntryBtn({ onClick, formId }) {
   return (
     <button type="button" onClick={onClick} data-form-id={formId}>
-      Remove
+      ×
     </button>
   );
 }

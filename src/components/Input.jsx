@@ -4,9 +4,9 @@ import { useState } from 'react';
 import toTitleCase from './helpers';
 
 export function FormItem({ editMode, type, domId, formId, init }) {
-  const [content, setContent] = useState(init);
+  const [content, setContent] = useState('');
 
-  const displayView = <p id={domId}>{content}</p>;
+  const displayView = content ?? <p id={domId}>{content}</p>;
 
   let editInput;
 
@@ -16,6 +16,7 @@ export function FormItem({ editMode, type, domId, formId, init }) {
         <textarea
           name={domId}
           id={`${domId}-${formId}`}
+          placeholder={init}
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
@@ -28,6 +29,7 @@ export function FormItem({ editMode, type, domId, formId, init }) {
           type={type}
           name={`${domId}-${formId}`}
           id={`${domId}-${formId}`}
+          placeholder={init}
           value={content}
           onChange={(e) => setContent(e.target.value)}
           autoComplete={domId}
@@ -49,8 +51,7 @@ export function FormItem({ editMode, type, domId, formId, init }) {
   return editMode ? editView : displayView;
 }
 
-export function JobDates({ editMode, formId, data }) {
-  const [start, end] = data;
+export function JobDates({ editMode, formId }) {
   const [currentJob, setCurrentJob] = useState(false);
 
   const displayView = currentJob && <p>Present</p>;
@@ -70,21 +71,19 @@ export function JobDates({ editMode, formId, data }) {
   return (
     <>
       <FormItem
-        key={start.domId}
+        key="start-date"
         editMode={editMode}
-        type={start.type}
-        domId={start.domId}
-        init={start.init}
+        type="month"
+        domId="start-date"
         formId={formId}
       />
       {editMode ? editView : displayView}
       {!currentJob && (
         <FormItem
-          key={end.domId}
+          key="end-date"
           editMode={editMode}
-          type={end.type}
-          domId={end.domId}
-          init={end.init}
+          type="month"
+          domId="end-date"
           formId={formId}
         />
       )}

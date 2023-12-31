@@ -13,14 +13,10 @@ function Form({ formId, sectionName, children }) {
 
   return (
     <form className={`${sectionName}-${formId}`}>
-      {inputs.map(({ type, domId, init, data }) =>
+      {sectionName !== 'general-info' && children}
+      {inputs.map(({ type, domId, init }) =>
         type === 'job-dates' ? (
-          <JobDates
-            key="job-dates"
-            editMode={editMode}
-            data={data}
-            formId={formId}
-          />
+          <JobDates key="job-dates" editMode={editMode} formId={formId} />
         ) : (
           <FormItem
             key={domId}
@@ -33,9 +29,8 @@ function Form({ formId, sectionName, children }) {
         )
       )}
       <button type="button" onClick={handleClick}>
-        Change
+        {editMode ? 'Save' : 'Edit'}
       </button>
-      {sectionName !== 'general-info' && children}
     </form>
   );
 }
