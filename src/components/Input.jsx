@@ -1,41 +1,69 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { addDays, format } from 'date-fns';
 import toTitleCase from './helpers';
 
 export function FormItem({ editMode, type, domId, formId, init }) {
   const [content, setContent] = useState('');
 
-  const displayView = content ? <p id={domId}>{content}</p> : '';
+  let displayView;
 
   let editInput;
 
-  switch (type) {
-    case 'textarea':
-      editInput = (
-        <textarea
-          name={domId}
-          id={`${domId}-${formId}`}
-          placeholder={init}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      );
-      break;
+  if (editMode) {
+    switch (type) {
+      case 'textarea':
+        editInput = (
+          <textarea
+            name={domId}
+            id={`${domId}-${formId}`}
+            placeholder={init}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        );
+        break;
 
-    default:
-      editInput = (
-        <input
-          type={type}
-          name={`${domId}-${formId}`}
-          id={`${domId}-${formId}`}
-          placeholder={init}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          autoComplete={domId}
-        />
-      );
-      break;
+      default:
+        editInput = (
+          <input
+            type={type}
+            name={`${domId}-${formId}`}
+            id={`${domId}-${formId}`}
+            placeholder={init}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            autoComplete={domId}
+          />
+        );
+        break;
+    }
+  } else {
+    switch (type) {
+      case 'textarea':
+        displayView = content ? (
+          <p style={{ whiteSpace: 'pre-line' }} id={domId}>
+            {content.replace(/\n{1,}/g, '\n').replace(/^/gm, '• ')}
+          </p>
+        ) : (
+          ''
+        );
+        break;
+
+      case 'month':
+        displayView = content ? (
+          // Add days to account for time difference between US and GMT.
+          <p id={domId}>{format(addDays(content, 3), 'MMMM yyyy')}</p>
+        ) : (
+          ''
+        );
+        break;
+
+      default:
+        displayView = content ? <p id={domId}>{content}</p> : '';
+        break;
+    }
   }
 
   const editView = (

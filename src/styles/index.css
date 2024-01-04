@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* color: unset; */
+  color: unset;
 }
 
 a {
@@ -48,10 +48,13 @@ main {
 
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
 }
 
 section {
+  flex: 1;
+  margin-bottom: 12px;
+
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -110,7 +113,22 @@ button:focus-visible {
 }
 
 @media print {
-  button {
+  * {
+    color: #000;
+  }
+
+  main {
+    display: block;
+  }
+
+  button,
+  header {
     display: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  main {
+    flex-direction: row;
   }
 }
