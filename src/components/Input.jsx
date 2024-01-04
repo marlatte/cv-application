@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { addDays, format } from 'date-fns';
@@ -68,10 +67,7 @@ export function FormItem({ editMode, type, domId, formId, init }) {
 
   const editView = (
     <div className="form-item">
-      <label
-        htmlFor={`${domId}-${formId}`}
-        style={{ marginRight: 10 }}
-      >{`${toTitleCase(domId)}:`}</label>
+      <label htmlFor={`${domId}-${formId}`}>{`${toTitleCase(domId)}:`}</label>
       {editInput}
     </div>
   );
