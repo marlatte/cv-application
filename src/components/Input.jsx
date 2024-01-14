@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { addDays, format } from 'date-fns';
 import toTitleCase from './helpers';
@@ -114,3 +114,16 @@ export function JobDates({ editMode, formId }) {
     </>
   );
 }
+
+FormItem.propTypes = {
+  editMode: PropTypes.bool.isRequired,
+  type: PropTypes.string.isRequired,
+  domId: PropTypes.string.isRequired,
+  formId: PropTypes.number.isRequired,
+  init: PropTypes.string.isRequired,
+};
+
+JobDates.propTypes = {
+  editMode: PropTypes.bool.isRequired,
+  formId: PropTypes.number.isRequired,
+};

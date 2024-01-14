@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import toTitleCase from './helpers';
 import Form from './Form';
@@ -57,3 +57,12 @@ function Section({ sectionName }) {
 }
 
 export default Section;
+
+AddEntryBtn.propTypes = { onClick: PropTypes.func.isRequired };
+
+RemoveEntryBtn.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  formId: PropTypes.number.isRequired,
+};
+
+Section.propTypes = { sectionName: PropTypes.string.isRequired };

@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FormItem, JobDates } from './Input';
 import formTemplates from './app-data';
@@ -36,3 +36,9 @@ function Form({ formId, sectionName, children }) {
 }
 
 export default Form;
+
+Form.propTypes = {
+  formId: PropTypes.number.isRequired,
+  sectionName: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+};
