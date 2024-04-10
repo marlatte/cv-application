@@ -1,7 +1,15 @@
 # CV Application
 
-Organize your information and download your resume with this React web app.
+Organize your information and print your resume with this React web app.
 
-Full requirements from The Odin Project can be [found here](https://www.theodinproject.com/lessons/node-path-react-new-cv-application).
+## Demo
 
-👉 [Live Demo](https://marlatte-cv-application.netlify.app/) 👈
+👉 [Live Preview](https://marlatte-cv-application.netlify.app/) 👈
+
+## Acknowledgements
+
+- [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-cv-application)
+
+## Built with
+
+[![My Skills](https://skillicons.dev/icons?i=react,js,vite,netlify,css)](https://skillicons.dev)
